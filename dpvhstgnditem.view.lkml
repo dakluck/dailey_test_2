@@ -17,7 +17,7 @@ view: dpvhstgnditem {
   }
 
   dimension: data_last_updated_date {
-    type: date_time
+    type: date
     sql: max(${_fivetran_synced_date}) ;;
     group_label: "Data Validation"
   }
