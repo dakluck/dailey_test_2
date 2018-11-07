@@ -306,6 +306,7 @@ view: gblstore {
       year
     ]
     sql: ${TABLE}."OPENDATE" ;;
+    label: "Open Date"
   }
 
   dimension: openhour {
