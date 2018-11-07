@@ -73,7 +73,7 @@ view: dpvhstgnditem {
     }
     value_format_name: usd_0
     group_label: "Sales"
-    drill_fields: [region.name]
+    drill_fields: [gblStore.region]
   }
 
     measure: net_tickets {
