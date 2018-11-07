@@ -30,12 +30,6 @@ view: dpvhstgnditem {
 
   #custom measures
 
-  measure: data_last_updated_date {
-    type: max
-    sql: ${_fivetran_synced_date} ;;
-    group_label: "Data Validation"
-  }
-
   measure: gross_sales {
     type: sum
     sql: ${price};;
