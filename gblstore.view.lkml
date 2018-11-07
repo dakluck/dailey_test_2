@@ -7,6 +7,7 @@ view: gblstore {
     type: string
     sql: ${region.name} ;;
     drill_fields: [district]
+    group_label: "Operational Mapping"
   }
 
   dimension: district {
