@@ -1,11 +1,56 @@
 view: dpvhstgnditem {
+  label: "Retail Sales"
   sql_table_name: ALOHA_DBO.DPVHSTGNDITEM ;;
 
+#custom dimensions
   dimension: date_sk {
     type: number
-    sql: concat(${dateofbusiness_year},lpad(${dateofbusiness_month},2,0),lpad(${dateofbusiness_day_of_month},2,0)) ;;
+    sql: concat(${dateofbusiness_year},concat(lpad(${dateofbusiness_month},2,0),lpad(${dateofbusiness_day_of_month},2,0))) ;;
+    hidden: yes
   }
 
+  dimension: unique_transaction {
+    type: number
+    sql: case when ${modcode} <> 1 then concat(${checknumber},concat(${fkstoreid},${date_sk})) else null end;;
+    hidden: yes
+  }
+
+  dimension: data_last_updated_date {
+    type: date_time
+    sql: max(${_fivetran_synced_date}) ;;
+    group_label: "Data Validation"
+  }
+
+  dimension: net_sales_column {
+    type: number
+    sql: case when ${discpric} is null then ${price} else ${discpric} end - ${incltax} ;;
+    hidden: yes
+  }
+
+  #custom measures
+  measure: net_sales {
+    type: sum
+    sql: ${net_sales_column};;
+    filters: {
+      field: modcode
+      value: "not 1"
+    }
+    group_label: "Net Sales"
+  }
+    measure: net_tickets {
+      type: count_distinct
+      sql: ${unique_transaction} ;;
+      group_label: "Net Tickets"
+    }
+
+  measure: avg_ticket {
+    type: number
+    sql: ${net_sales}/${net_tickets} ;;
+    value_format_name: usd
+    group_label: "Net Tickets"
+  }
+
+#stock dimensions below this line
   dimension: _fivetran_deleted {
     type: yesno
     sql: ${TABLE}."_FIVETRAN_DELETED" ;;
@@ -205,7 +250,7 @@ view: dpvhstgnditem {
   }
 
   dimension: modcode {
-    type: string
+    type: number
     sql: ${TABLE}."MODCODE" ;;
   }
 

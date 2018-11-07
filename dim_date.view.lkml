@@ -1,5 +1,5 @@
 view: dim_date {
-  sql_table_name: PUBLIC.DIM_DATE ;;
+  sql_table_name: PC_DAILEY_TEST.PUBLIC.DIM_DATE ;;
 
   dimension_group: date {
     type: time

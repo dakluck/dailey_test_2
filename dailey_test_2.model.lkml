@@ -15,4 +15,5 @@ explore: dpvhstgnditem {
     relationship: many_to_one
     sql_on: ${dim_date.date_sk} = ${dpvhstgnditem.date_sk};;
   }
+  group_label: "Retail"
 }
