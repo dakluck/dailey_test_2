@@ -111,7 +111,12 @@ view: dpvhstgnditem {
     group_label: "Units"
   }
 
-
+  measure: net_sales_mix {
+    type: percent_of_total
+    sql: ${net_sales};;
+    value_format_name: percent_1
+    group_label: "Sales"
+  }
 
 #stock dimensions below this line
   dimension: _fivetran_deleted {
