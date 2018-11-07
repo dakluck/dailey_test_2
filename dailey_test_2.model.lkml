@@ -35,7 +35,6 @@ explore: dpvhstgnditem {
     #this is the operaational district
     relationship: many_to_one
     sql_on: ${cfgitembystore.itemid} = ${dpvhstgnditem.fkitemid} and ${cfgitembystore.fkstoreid} = ${gblstore.storeid};;
-    fields: []
   }
   group_label: "Retail"
 }
