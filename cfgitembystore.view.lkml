@@ -27,6 +27,7 @@ view: cfgitembystore {
     type: string
     sql: ${TABLE}."ABBREVNAME" ;;
     label: "Abbreviated Name"
+    group_label: "Name"
   }
 
   dimension: adisprecp {
@@ -400,6 +401,7 @@ view: cfgitembystore {
     type: string
     sql: ${TABLE}."LONGNAME" ;;
     label: "Long Name"
+    group_label: "Name"
   }
 
   dimension: longname2 {
@@ -592,6 +594,7 @@ view: cfgitembystore {
     type: string
     sql: ${TABLE}."SHORTNAME" ;;
     label: "Short Name"
+    group_label: "Name"
   }
 
   dimension: showindependently {
