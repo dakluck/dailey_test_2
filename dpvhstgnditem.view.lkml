@@ -356,6 +356,7 @@ view: dpvhstgnditem {
   dimension: uniqueid {
     type: string
     sql: ${TABLE}."UNIQUEID" ;;
+    primary_key: yes
   }
 
   measure: count {
