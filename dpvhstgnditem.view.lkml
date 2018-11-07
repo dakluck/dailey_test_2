@@ -6,8 +6,8 @@ view: dpvhstgnditem {
 #custom dimensions
   dimension: date_sk {
     type: number
-    sql: concat(${dateofbusiness_year},concat(lpad(${dateofbusiness_month},2,0),lpad(${dateofbusiness_day_of_month},2,0))) ;;
-    hidden: yes
+    sql: concat(${dateofbusiness_year},concat(lpad(${dateofbusiness_month_num},2,0),lpad(${dateofbusiness_day_of_month},2,0))) ;;
+    hidden: no
   }
 
   dimension: unique_transaction {
@@ -174,6 +174,7 @@ view: dpvhstgnditem {
       day_of_month,
       week,
       month,
+      month_num,
       quarter,
       year
     ]
