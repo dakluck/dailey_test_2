@@ -15,5 +15,14 @@ explore: dpvhstgnditem {
     relationship: many_to_one
     sql_on: ${dim_date.date_sk} = ${dpvhstgnditem.date_sk};;
   }
+  join: gblstore {
+    relationship: many_to_one
+    sql_on: ${gblstore.storeid} = ${dpvhstgnditem.fkstoreid} ;;
+  }
+  join: region {
+    relationship: one_to_one
+    sql_on: ${region.regionid} = ${gblstore.fkregionid} ;;
+  }
+
   group_label: "Retail"
 }
