@@ -1,4 +1,5 @@
 view: dpvhstgnditem {
+  view_label: "Related"
   label: "Retail Sales"
   sql_table_name: ALOHA_DBO.DPVHSTGNDITEM ;;
 
@@ -148,61 +149,73 @@ view: dpvhstgnditem {
   dimension: fkcategoryid {
     type: string
     sql: ${TABLE}."FKCATEGORYID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fkdaypartid {
     type: string
     sql: ${TABLE}."FKDAYPARTID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fkemployeenumber {
     type: string
     sql: ${TABLE}."FKEMPLOYEENUMBER" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fkitemid {
     type: string
     sql: ${TABLE}."FKITEMID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fkoccasionid {
     type: string
     sql: ${TABLE}."FKOCCASIONID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fkordermodeid {
     type: string
     sql: ${TABLE}."FKORDERMODEID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fkrevenueid {
     type: string
     sql: ${TABLE}."FKREVENUEID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fkstoreid {
     type: string
     sql: ${TABLE}."FKSTOREID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fktaxid {
     type: string
     sql: ${TABLE}."FKTAXID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fkterminalid {
     type: string
     sql: ${TABLE}."FKTERMINALID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: fohuniquetableid {
     type: string
     sql: ${TABLE}."FOHUNIQUETABLEID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: groupquickcomboid {
     type: string
     sql: ${TABLE}."GROUPQUICKCOMBOID" ;;
+    group_label: "Foreign Keys"
   }
 
   dimension: hour {
