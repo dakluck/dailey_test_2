@@ -60,7 +60,7 @@ view: dpvhstgnditem {
 
   measure: inclusive_tax {
     type: sum
-    sql: ;;
+    sql: ${incltax} ;;
   filters: {
     field: modcode
     value: "not 1"
