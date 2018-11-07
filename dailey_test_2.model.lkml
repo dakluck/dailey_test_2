@@ -20,9 +20,14 @@ explore: dpvhstgnditem {
     sql_on: ${gblstore.storeid} = ${dpvhstgnditem.fkstoreid} ;;
   }
   join: region {
+    #this is the operaational region
     relationship: one_to_one
     sql_on: ${region.regionid} = ${gblstore.fkregionid} ;;
   }
-
+  join: areas {
+    #this is the operaational region
+    relationship: one_to_one
+    sql_on: ${areas.areaid} = ${gblstore.fkareaid} ;;
+  }
   group_label: "Retail"
 }
