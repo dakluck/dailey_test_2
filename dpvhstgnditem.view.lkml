@@ -16,12 +16,6 @@ view: dpvhstgnditem {
     hidden: yes
   }
 
-  dimension: data_last_updated_date {
-    type: date
-    sql: max(${_fivetran_synced_date}) ;;
-    group_label: "Data Validation"
-  }
-
   dimension: net_sales_column {
     type: number
     sql: case when ${discpric} is null then ${price} else ${discpric} end - ${incltax} ;;
@@ -35,6 +29,12 @@ view: dpvhstgnditem {
   }
 
   #custom measures
+
+  measure: data_last_updated_date {
+    type: max
+    sql: ${_fivetran_synced_date} ;;
+    group_label: "Data Validation"
+  }
 
   measure: gross_sales {
     type: sum
