@@ -1,5 +1,6 @@
 view: dim_date {
   sql_table_name: PC_DAILEY_TEST.PUBLIC.DIM_DATE ;;
+  label: "Date"
 
   dimension_group: date {
     type: time
