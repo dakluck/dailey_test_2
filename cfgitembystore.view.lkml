@@ -1,9 +1,11 @@
 view: cfgitembystore {
   sql_table_name: ALOHA_DBO.CFGITEMBYSTORE ;;
+  label: "Item"
 
   dimension: _fivetran_deleted {
     type: yesno
     sql: ${TABLE}."_FIVETRAN_DELETED" ;;
+    hidden: yes
   }
 
   dimension_group: _fivetran_synced {
@@ -18,6 +20,7 @@ view: cfgitembystore {
       year
     ]
     sql: ${TABLE}."_FIVETRAN_SYNCED" ;;
+    hidden: yes
   }
 
   dimension: abbrevname {
@@ -193,6 +196,7 @@ view: cfgitembystore {
   dimension: fkstoreid {
     type: number
     sql: ${TABLE}."FKSTOREID" ;;
+    hidden: yes
   }
 
   dimension: fksurchargeid {
@@ -313,6 +317,7 @@ view: cfgitembystore {
   dimension: itemid {
     type: number
     sql: ${TABLE}."ITEMID" ;;
+    primary_key: yes
   }
 
   dimension: itemmultmod {
@@ -333,6 +338,7 @@ view: cfgitembystore {
   dimension: longname {
     type: string
     sql: ${TABLE}."LONGNAME" ;;
+    label: "Long Name"
   }
 
   dimension: longname2 {
@@ -493,6 +499,7 @@ view: cfgitembystore {
   dimension: shortname {
     type: string
     sql: ${TABLE}."SHORTNAME" ;;
+    label: "Short Name"
   }
 
   dimension: showindependently {
@@ -603,10 +610,5 @@ view: cfgitembystore {
   dimension: usetxtclr {
     type: string
     sql: ${TABLE}."USETXTCLR" ;;
-  }
-
-  measure: count {
-    type: count
-    drill_fields: [chitname, bohname, longname, shortname, abbrevname]
   }
 }
