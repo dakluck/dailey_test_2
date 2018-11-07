@@ -28,7 +28,48 @@ view: dpvhstgnditem {
     hidden: yes
   }
 
+  dimension: discounts_column {
+    type: number
+    sql: case when ${discpric} is null then null else ${price}-${discpric} end ;;
+    hidden: yes
+  }
+
   #custom measures
+
+  measure: gross_sales {
+    type: sum
+    sql: ${price};;
+    filters: {
+      field: modcode
+      value: "not 1"
+    }
+    value_format_name: usd_0
+    group_label: "Sales"
+  }
+
+  measure: discounts {
+    type: sum
+    sql: ${discounts_column};;
+    filters: {
+      field: modcode
+      value: "not 1"
+    }
+    value_format_name: usd_0
+    group_label: "Sales"
+  }
+
+  measure: inclusive_tax {
+    type: sum
+    sql: ;;
+  filters: {
+    field: modcode
+    value: "not 1"
+  }
+  label: "Inclusive Tax"
+  value_format_name: usd_0
+  group_label: "Sales"
+}
+
   measure: net_sales {
     type: sum
     sql: ${net_sales_column};;
@@ -39,6 +80,7 @@ view: dpvhstgnditem {
     value_format_name: usd_0
     group_label: "Sales"
   }
+
     measure: net_tickets {
       type: count_distinct
       sql: ${unique_transaction} ;;
@@ -74,6 +116,8 @@ view: dpvhstgnditem {
     sql: ${units_sold}/${net_tickets} ;;
     group_label: "Units"
   }
+
+
 
 #stock dimensions below this line
   dimension: _fivetran_deleted {
