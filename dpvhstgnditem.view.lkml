@@ -35,6 +35,7 @@ view: dpvhstgnditem {
       field: modcode
       value: "not 1"
     }
+    value_format_name: usd_0
     group_label: "Net Sales"
   }
     measure: net_tickets {

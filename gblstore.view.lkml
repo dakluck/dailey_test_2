@@ -1,18 +1,19 @@
 view: gblstore {
   sql_table_name: ALOHA_DBO.GBLSTORE ;;
+  label: "Store"
 
   #custom dimensions
   dimension: region {
     type: string
     sql: ${region.name} ;;
     drill_fields: [district]
-    group_label: "Operational Mapping"
   }
 
   dimension: district {
     type: string
     sql: ${areas.name} ;;
     group_label: "Operational Mapping"
+    drill_fields: [name]
   }
 
   #stock dimensions
@@ -278,6 +279,8 @@ view: gblstore {
   dimension: name {
     type: string
     sql: ${TABLE}."NAME" ;;
+    group_label: "Operational Mapping"
+    label: "Store"
   }
 
   dimension: netname {
